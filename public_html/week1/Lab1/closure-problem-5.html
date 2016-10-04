@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Program5</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -13,11 +13,23 @@
              * Fix the loop with a closure so the console will display the correct value 
              * you can move/add code if you need to(hint hint)
              */
-            for (var a = 0; a < 5; a++) {
+            function numOutput(a){
                 setTimeout(function () {
-                    console.log('The Value of a is = ', a);
+                    //this counts how many times it loops through which is 5 times
+                    console.log('What is the value of a.: ' + a);
                 }, 100);
             }
+            
+            function addNumber() {
+                var a = 0;
+                 for (a; a < 5; a++) {
+                 numOutput(a);               
+            }
+        }
+        addNumber();
+           
+            
+           
         </script>
     </body>
 </html>

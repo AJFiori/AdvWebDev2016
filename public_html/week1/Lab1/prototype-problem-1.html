@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>ProtoType</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <p>Open browser console</p>
 
-        <div>TODO write content</div>
+        <div>ProtoType</div>
         <script type="text/javascript">
             'use strict';
 
@@ -16,11 +16,36 @@
                 /* complete the class using the prototype to build the functions with chaining
                  * Programming
                  *  */
+                this.selector = selector;
             }
-
+                //Color
+                CSS.prototype.red = function(){
+                document.querySelector(this.selector).style.setProperty('color','red');
+                return this;
+                }
+                
+                //Size
+                CSS.prototype.size = function(size){
+                    document.querySelector(this.selector).style.setProperty('font-size',size);
+                    return this;
+                }
+                
+                //bold
+                CSS.prototype.bold = function(){
+                    document.querySelector(this.selector).style.setProperty('font-weight ','bold');
+                    return this;
+                }
+                
+                //underline
+                CSS.prototype.underline = function(){
+                    document.querySelector(this.selector).style.setProperty('text-decoration','underline');
+                    return this;
+                }
+            
             /* Do not change the code below.  Access the DOM object to change the styles */
             var div = new CSS('div');
             div.red().size('4em').bold().underline();
+          
         </script>
     </body>
 </html>

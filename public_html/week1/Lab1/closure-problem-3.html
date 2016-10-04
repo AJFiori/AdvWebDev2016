@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Problem3</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -13,10 +13,11 @@
              * Fix the console.log by replacing the single quotes in the 
              * comparison with the correct value 
              */
+            var unDf
             function outerRun() {
                 function innerRun() {
-                    console.log(a === a, 'What is the value of a.');
-                    console.log(b === b, 'What is the value of b.');
+                    console.log(a === a, 'What is the value of a.: ' + a);
+                    console.log(b === unDf, 'What is the value of b.');
 
                 }
                 var a = 7;
