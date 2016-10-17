@@ -42,6 +42,7 @@ function makeRequest(url) {
     return promise;
 }
 
+/*
 //test hardcode call
 var testJSON = [
     {
@@ -88,6 +89,7 @@ var testJSON = [
     }
 ];
 
+*/
 
 //pull from file call
 var basicJSON;
@@ -97,14 +99,15 @@ var callback = {
         basicJSON = data["users"];
 
         //To pull JSON from file
-        window.addEventListener('load', displayList.bind(null, 'ul.users', basicJSON));
+        displayList('ul.users', basicJSON);
 
     },
     error: function (data) {
         console.log(2, 'error', data);
     }
 };
-makeRequest('../lab2/data/users.json').then(callback.success, callback.error);
+    //makeRequest('data/users.json').then(callback.success, callback.error);
+    makeRequest('data/' +_id + '.JSON').then(callback.success, callback.error);  
 
 
 function displayList(selector, list) {
@@ -144,10 +147,11 @@ function displayContent(selector, item) {
         dom.removeChild(dom.firstChild);
     }
 
-
+    
     docfrag.appendChild(createParagraphElement('ID: ', item._id));
-    docfrag.appendChild(createParagraphElement('First Name: ', item.name.first));
-    docfrag.appendChild(createParagraphElement('Last Name: ', item.name.last));
+    docfrag.appendChild(createParagraphElement('Full Name: ', item.name.first + " " + item.name.last));
+    docfrag.appendChild(createParagraphElement('Company: ', item.company));
+    docfrag.appendChild(createParagraphElement('Email: ', item.email));
 
     var completed = createParagraphElement('Completed: ', item.name.last);
     completed.setAttribute('class', 'link');
