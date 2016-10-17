@@ -93,10 +93,12 @@ var testJSON = [
 
 //pull from file call
 var basicJSON;
+var _id = '57ffce00d421f604048197e9';
+
 var callback = {
     success: function (data) {
         console.log(1, 'success', data);
-        basicJSON = data["users"];
+        basicJSON = data[_id];
 
         //To pull JSON from file
         displayList('ul.users', basicJSON);
