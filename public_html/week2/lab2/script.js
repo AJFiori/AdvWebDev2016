@@ -100,7 +100,8 @@ function displayList(selector, list) {
         li.setAttribute('class', 'link');
         /*you can even attach events to the element */
         //li.addEventListener('click', displayContent.bind(null, 'section.featured', value));
-        li.addEventListener('click',userIMG.bind(null,value.picture));
+        
+        //li.addEventListener('click',userIMG.bind(null,value.picture));
         li.addEventListener('click', infoOnClick.bind(null, value._id));
         docfrag.appendChild(li);
     });
@@ -111,7 +112,8 @@ function displayList(selector, list) {
 function displayContent(selector, item) {
     var dom = document.querySelector(selector);
     var docfrag = document.createDocumentFragment();
-
+   
+    
     /* remove any child elements */
     while (dom.firstChild) {
         dom.removeChild(dom.firstChild);
