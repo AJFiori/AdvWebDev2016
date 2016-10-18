@@ -62,7 +62,7 @@ makeRequest('data/users.json').then(callbackUserNav.success, callbackUserNav.err
 var callbackUserInfo = {
     success: function (data) {
         console.log(1, 'success', data);
-        displayContent('section.featured', data);
+        displayContent('article', data);
     },
     error: function (data) {
         console.log(2, 'error', data);
@@ -73,8 +73,10 @@ function infoOnClick(id) {
     makeRequest('data/' + id + '.json').then(callbackUserInfo.success, callbackUserInfo.error);
 }
 
-function userIMG(picture){
-    makeRequest('data/img' + picture + '.png').then(callbackUserInfo.success, callbackUserInfo.error);
+function userIMG(img) {
+    var imgTag = document.createElement('img');
+    imgTag.setAttribute('src', '../lab2/img/' + img);
+    return imgTag;
 }
 
 
@@ -99,9 +101,7 @@ function displayList(selector, list) {
         /* you can set any attribute using the function below for any Created element */
         li.setAttribute('class', 'link');
         /*you can even attach events to the element */
-        //li.addEventListener('click', displayContent.bind(null, 'section.featured', value));
-        
-        //li.addEventListener('click',userIMG.bind(null,value.picture));
+
         li.addEventListener('click', infoOnClick.bind(null, value._id));
         docfrag.appendChild(li);
     });
@@ -110,16 +110,34 @@ function displayList(selector, list) {
     dom.appendChild(docfrag);
 }
 function displayContent(selector, item) {
-    var dom = document.querySelector(selector);
+    var figureTag = document.querySelector('figure');
+    var figurefrag = document.createDocumentFragment();
+    var articleTag = document.querySelector(selector);
     var docfrag = document.createDocumentFragment();
-   
     
     /* remove any child elements */
-    while (dom.firstChild) {
-        dom.removeChild(dom.firstChild);
+    while (figureTag.firstChild) {
+        figureTag.removeChild(figureTag.firstChild);
+    }
+    
+//Users image
+    figurefrag.appendChild(userIMG(item.picture));
+    figureTag.appendChild(figurefrag);
+    
+    
+    /* remove any child elements */
+    while (articleTag.firstChild) {
+        articleTag.removeChild(articleTag.firstChild);
     }
 
-    docfrag.appendChild(createParagraphElement(item.picture));
+    if(item.isActive){
+        articleTag.setAttribute('class', 'active');
+    }
+    else{
+        articleTag.setAttribute('class', 'inactive');
+    }
+
+//User Info 
     docfrag.appendChild(createParagraphElement('Full Name: ', item.name.first + " " + item.name.last));
     docfrag.appendChild(createParagraphElement('Company: ', item.company));
     docfrag.appendChild(createParagraphElement('Email: ', item.email));
@@ -133,10 +151,8 @@ function displayContent(selector, item) {
     docfrag.appendChild(createParagraphElement('Balance: ', item.balance));
     docfrag.appendChild(createParagraphElement('About: ', item.about));
 
-
-    dom.appendChild(docfrag);
+    articleTag.appendChild(docfrag);
 }
-
 /* custom function to generate a template for our view */
 function createParagraphElement(label, text) {
     var pTag = document.createElement('p'),
