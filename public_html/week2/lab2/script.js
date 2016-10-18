@@ -40,19 +40,42 @@ function makeRequest(url) {
     // Return the promise
     return promise;
 }
-var basicJSON;
 
-var callback = {
+
+//populates Nav
+var userNavJSON;
+
+var callbackUserNav = {
     success: function (data) {
         console.log(1, 'success', data);
-        basicJSON = data["users"];
-        displayList('ul.users',basicJSON);
+        userNavJSON = data["users"];
+        displayList('ul.users', userNavJSON);
     },
     error: function (data) {
         console.log(2, 'error', data);
     }
 };
-makeRequest('data/users.json').then(callback.success, callback.error);
+makeRequest('data/users.json').then(callbackUserNav.success, callbackUserNav.error);
+
+
+//populates user 
+var callbackUserInfo = {
+    success: function (data) {
+        console.log(1, 'success', data);
+        displayContent('section.featured', data);
+    },
+    error: function (data) {
+        console.log(2, 'error', data);
+    }
+};
+
+function infoOnClick(id) {
+    makeRequest('data/' + id + '.json').then(callbackUserInfo.success, callbackUserInfo.error);
+}
+
+function userIMG(picture){
+    makeRequest('data/img' + picture + '.png').then(callbackUserInfo.success, callbackUserInfo.error);
+}
 
 
 function displayList(selector, list) {
@@ -76,7 +99,9 @@ function displayList(selector, list) {
         /* you can set any attribute using the function below for any Created element */
         li.setAttribute('class', 'link');
         /*you can even attach events to the element */
-        li.addEventListener('click', displayContent.bind(null, 'section.featured', value));
+        //li.addEventListener('click', displayContent.bind(null, 'section.featured', value));
+        li.addEventListener('click',userIMG.bind(null,value.picture));
+        li.addEventListener('click', infoOnClick.bind(null, value._id));
         docfrag.appendChild(li);
     });
 
@@ -92,19 +117,21 @@ function displayContent(selector, item) {
         dom.removeChild(dom.firstChild);
     }
 
+    docfrag.appendChild(createParagraphElement(item.picture));
+    docfrag.appendChild(createParagraphElement('Full Name: ', item.name.first + " " + item.name.last));
+    docfrag.appendChild(createParagraphElement('Company: ', item.company));
+    docfrag.appendChild(createParagraphElement('Email: ', item.email));
+    docfrag.appendChild(createParagraphElement('Phone: ', item.phone));
+    docfrag.appendChild(createParagraphElement('Address: ', item.address));
+    docfrag.appendChild(createParagraphElement('Registered: ', item.registered));
+    docfrag.appendChild(createParagraphElement('Age: ', item.age));
+    docfrag.appendChild(createParagraphElement('Eye Color: ', item.eyeColor));
+    docfrag.appendChild(createParagraphElement('Greeting: ', item.greeting));
+    docfrag.appendChild(createParagraphElement('Favorite Fruit: ', item.favoriteFruit));
+    docfrag.appendChild(createParagraphElement('Balance: ', item.balance));
+    docfrag.appendChild(createParagraphElement('About: ', item.about));
 
-    docfrag.appendChild(createParagraphElement('ID: ', item._id));
-    docfrag.appendChild(createParagraphElement('First Name: ', item.name.first));
-    docfrag.appendChild(createParagraphElement('Last Name: ', item.name.last));
 
-    var completed = createParagraphElement('Completed: ', item.name.last);
-    completed.setAttribute('class', 'link');
-    completed.addEventListener('click', function () {
-        item.completed = !item.completed;
-        displayContent(selector, item);
-    });
-
-    docfrag.appendChild(completed);
     dom.appendChild(docfrag);
 }
 
