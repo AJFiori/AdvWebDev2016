@@ -13,7 +13,7 @@ function makeRequest(url) {
         var httpRequest = new XMLHttpRequest();
 
         if (!httpRequest) {
-            reject('Giving up :( Cannot create an XMLHTTP instance');
+            reject('Giving up :frowning: Cannot create an XMLHTTP instance');
         }
 
         httpRequest.open('GET', url);
@@ -37,79 +37,22 @@ function makeRequest(url) {
         }
 
     }
-
     // Return the promise
     return promise;
 }
-
-/*
-//test hardcode call
-var testJSON = [
-    {
-        "_id": "57ffce008069be6bd948dd31",
-        "name": {
-            "first": "Day",
-            "last": "Gross"
-        }
-    },
-    {
-        "_id": "57ffce00d421f604048197e9",
-        "name": {
-            "first": "Simon",
-            "last": "Vincent"
-        }
-    },
-    {
-        "_id": "57ffce01f5a890d50d2ffb93",
-        "name": {
-            "first": "Mitzi",
-            "last": "Graves"
-        }
-    },
-    {
-        "_id": "57ffce019a42ad4438355f5a",
-        "name": {
-            "first": "Reynolds",
-            "last": "Green"
-        }
-    },
-    {
-        "_id": "57ffce01cd2844a7e82b1855",
-        "name": {
-            "first": "Todd",
-            "last": "Mack"
-        }
-    },
-    {
-        "_id": "57ffce01e24d7a1c33de99a3",
-        "name": {
-            "first": "Elnora",
-            "last": "Bates"
-        }
-    }
-];
-
-*/
-
-//pull from file call
 var basicJSON;
-var _id = '57ffce00d421f604048197e9';
 
 var callback = {
     success: function (data) {
         console.log(1, 'success', data);
-        basicJSON = data[_id];
-
-        //To pull JSON from file
-        displayList('ul.users', basicJSON);
-
+        basicJSON = data["users"];
+        displayList('ul.users',basicJSON);
     },
     error: function (data) {
         console.log(2, 'error', data);
     }
 };
-    //makeRequest('data/users.json').then(callback.success, callback.error);
-    makeRequest('data/' +_id + '.JSON').then(callback.success, callback.error);  
+makeRequest('data/users.json').then(callback.success, callback.error);
 
 
 function displayList(selector, list) {
@@ -149,11 +92,10 @@ function displayContent(selector, item) {
         dom.removeChild(dom.firstChild);
     }
 
-    
+
     docfrag.appendChild(createParagraphElement('ID: ', item._id));
-    docfrag.appendChild(createParagraphElement('Full Name: ', item.name.first + " " + item.name.last));
-    docfrag.appendChild(createParagraphElement('Company: ', item.company));
-    docfrag.appendChild(createParagraphElement('Email: ', item.email));
+    docfrag.appendChild(createParagraphElement('First Name: ', item.name.first));
+    docfrag.appendChild(createParagraphElement('Last Name: ', item.name.last));
 
     var completed = createParagraphElement('Completed: ', item.name.last);
     completed.setAttribute('class', 'link');
@@ -172,11 +114,9 @@ function createParagraphElement(label, text) {
             strongTag = document.createElement('strong'),
             strongText = document.createTextNode(label),
             pText = document.createTextNode(text);
+
     strongTag.appendChild(strongText);
     pTag.appendChild(strongTag);
     pTag.appendChild(pText);
     return pTag;
 }
-
-//Maunal JSON
-//window.addEventListener('load', displayList.bind(null, 'ul.users', testJSON));
