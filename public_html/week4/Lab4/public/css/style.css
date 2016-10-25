@@ -3,3 +3,8 @@ body {
     background-color: #5C5C5E;
     color: #faebcc;
 }
+
+.pic{
+    width:50%;
+    height:50%;
+}
