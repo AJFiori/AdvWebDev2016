@@ -51,7 +51,7 @@ var callbackUserInfo = {
         console.log(2, 'error', data);
     }
 };
-makeRequest('data/todo.json').then(callbackUserInfo.success, callbackUserInfo.error);
+makeRequest('http://localhost:3000/todo').then(callbackUserInfo.success, callbackUserInfo.error);
 
 function displayContent(selector, item) {
                 var dom = document.querySelector(selector);
@@ -66,6 +66,7 @@ function displayContent(selector, item) {
                 
                 //loops through array
                 for(var i = 0; i < 10; i++){
+                    
                     docfrag.appendChild( createParagraphElement('Title: ', item[i].title) );
                 }
                     dom.appendChild(docfrag);
