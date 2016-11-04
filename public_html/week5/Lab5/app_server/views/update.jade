@@ -1,0 +1,44 @@
+extends layout
+
+block content
+ h1=title
+ p
+
+ h2=message
+ form(action="/update", method="post", role="form")
+    .form-group
+        label.col-xs-10.col-sm-2.control-label(for="fName") First Name:
+        .col-xs-12.col-sm-10
+            input#name.form-control(name="fName" value="#{results.fName}")
+            br
+    .form-group           
+        label.col-xs-10.col-sm-2.control-label(for="lName") Last Name:
+        .col-xs-12.col-sm-10
+            input#name.form-control(name="lName" value="#{results.lName}")
+            br
+    .form-group
+        label.col-xs-10.col-sm-2.control-label(for="department") Department:
+        .col-xs-12.col-sm-2
+            select#rating.form-control.input-sm(name="department")
+                option(selected=results.department == "Purchasing") Purchasing
+                option(selected=results.department == "Accounting") Accounting
+                option(selected=results.department == "Marketing") Marketing
+                option(selected=results.department == "IT") IT
+                option(selected=results.department == "HR") HR
+    .form-group
+        label.col-xs-10.col-sm-2.control-label(for="date") Start Date:
+        .col-xs-12.col-sm-10
+            input#name.form-control(name="date" value="#{results.date}")
+            br
+    .form-group
+        label.col-xs-10.col-sm-2.control-label(for="job") Job Title:
+        .col-xs-12.col-sm-10
+            input#name.form-control(name="job" value="#{results.job}")
+            br
+    .form-group
+        label.col-xs-10.col-sm-2.control-label(for="salary") Salary:
+        .col-xs-12.col-sm-10
+            input#name.form-control(name="salary" value="#{results.salary}")
+            br
+            input(type="hidden" name="_id" value="#{results._id}")
+            input(class="btn btn-success center-block" type="submit" value="Update Employee") 

@@ -1,0 +1,42 @@
+extends layout
+
+block content
+ h1=title
+ p
+
+ h2=message
+ form.form-horizontal(action="/", method="post", role="form")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="fName") First Name:
+          .col-xs-12.col-sm-10
+            input#name.form-control(name="fName" required)
+            span(class="fn_Error")
+            br
+          label.col-xs-10.col-sm-2.control-label(for="lName") Last Name:
+          .col-xs-12.col-sm-10
+            input#name.form-control(name="lName" required)
+            br
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="department") Department:
+          .col-xs-12.col-sm-2
+            select#department.form-control.input-sm(name="department")
+              option Purchasing
+              option Accounting
+              option Marketing
+              option IT
+              option HR
+              br
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="date") Start Date:
+          .col-xs-12.col-sm-10
+            input#date.form-control(name="date" required)
+            br
+          label.col-xs-10.col-sm-2.control-label(for="job") Job Title:
+          .col-xs-12.col-sm-10
+            input#name.form-control(name="job" required)
+            br
+          label.col-xs-10.col-sm-2.control-label(for="salary") Salary:
+          .col-xs-12.col-sm-10
+            input#salary.form-control(name="salary" required)
+            br
+            input(class="btn btn-success center-block" type="submit" value="Add New Employee") 
