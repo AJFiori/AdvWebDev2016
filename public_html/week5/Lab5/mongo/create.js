@@ -2,10 +2,10 @@
  * These examples do not work as is, they are just code examples on how to do so.
  */
 
-var Review = require('../models/review');
+var Employee  = require('../models/employee ');
 
 
-  Review.create({
+  Employee.create({
     data1: 'data1',
     data2: 'data2',
     data3: 'data3',

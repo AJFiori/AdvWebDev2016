@@ -5,11 +5,11 @@
  */
 
 
-var Review = require('../models/review');
+var Employee = require('../models/employee');
 
 var id = req.params.id;
 
-Review.remove({ _id: id }, function(err) {
+Employee.remove({ _id: id }, function(err) {
             if (!err) {
                 /* Document Deleted */
             }

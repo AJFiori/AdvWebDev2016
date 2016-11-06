@@ -6,7 +6,7 @@
 
 var mongoose = require('mongoose');
 
-var reviewSchema = new mongoose.Schema({
+var employeeSchema = new mongoose.Schema({
     fName: String,
     lName: String,
     department: String,
@@ -19,6 +19,6 @@ var reviewSchema = new mongoose.Schema({
     }
 });
 
-var Review = mongoose.model('Review', reviewSchema);
+var Employee = mongoose.model('Employee', employeeSchema);
 
-module.exports = Review;
+module.exports = Employee;

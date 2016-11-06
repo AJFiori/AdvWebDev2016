@@ -1,7 +1,7 @@
 /* GET 'home info' page */
 
 
-var Review = require('../models/review');
+var Employee = require('../models/employee');
 
 module.exports.home = function(req, res){
     
@@ -15,7 +15,7 @@ module.exports.home = function(req, res){
     if (req.method === 'POST') {
         console.log(req.body);
         
-        Review.create({
+        Employee.create({
           fName: req.body.fName,
           lName: req.body.lName,
           department: req.body.department,
@@ -43,7 +43,7 @@ module.exports.view = function(req, res){
          removed = '';
  
     function finish() {     
-       Review
+       Employee
        .find()
        .exec(function(err, results){
 
@@ -60,7 +60,7 @@ module.exports.view = function(req, res){
          var removePromise = new Promise(
             function (resolve, reject) { 
                 
-                Review.remove({ _id: id }, function (err) {
+                Employee.remove({ _id: id }, function (err) {
                    if (!err) {
                         resolve(' has been removed'); // success
                     } else {
@@ -108,12 +108,12 @@ module.exports.update = function(req, res){
         };
         var options = {};
         var callback = function(){};
-        Review.update(query, update, options, callback);
+        Employee.update(query, update, options, callback);
         msg = 'data has been updated';
      }
     
     
-    Review
+    Employee
     .findOne({ '_id': id })
     .exec(function(err, results){
     
