@@ -1,0 +1,37 @@
+mixin outputEmployees(results)
+    table(border="1")
+        thead   
+            tr
+                th First Name
+                th Last Name
+                th Department
+                th Start Date
+                th Job Title
+                th Salary
+                th createdOn
+        tbody
+        - each stuff in results
+            tr
+                td 
+                    = stuff.fName
+                td 
+                    = stuff.lName
+                td 
+                    = stuff.department
+                td
+                    +formatDate(stuff.date)
+                td
+                    = stuff.job
+                td
+                    = stuff.salary
+                td 
+                    +formatDate(stuff.createdOn)           
+
+mixin formatDate(dateString)
+  -var date = new Date(dateString);
+  -var d = date.getDate();
+  -var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+  -var m = monthNames[date.getMonth()];
+  -var y = date.getFullYear();
+  -var output = m + ' ' + d + ' ' + y;
+  =output
