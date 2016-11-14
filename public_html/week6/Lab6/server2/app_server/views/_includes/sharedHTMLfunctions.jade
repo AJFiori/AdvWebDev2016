@@ -13,15 +13,15 @@ mixin outputEmployees(results)
         - each stuff in results
             tr
                 td 
-                    = stuff.fName
+                    = stuff.firstName
                 td 
-                    = stuff.lName
+                    = stuff.lastName
                 td 
                     = stuff.department
                 td
-                    +formatDate(stuff.date)
+                    +formatDate(stuff.startDate)
                 td
-                    = stuff.job
+                    = stuff.jobTitle
                 td
                     = stuff.salary
                 td 

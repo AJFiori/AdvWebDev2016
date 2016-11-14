@@ -32,19 +32,19 @@
         <br />
         <br />
         Data(optional):<br />   
-        First Name: <input type="text" name="fName" value="" />
+        First Name: <input type="text" name="firstName" value="" />
         <br />
         <br/>
-        Last Name: <input type="text" name="lName" value="" />
+        Last Name: <input type="text" name="lastName" value="" />
         <br />
         <br/>
         Department: <input type="text" name="department" list="departments" placeholder="Please Select">        
         <br />
         <br/>
-        Start Date: <input type="text" name="date" value="" />
+        Start Date: <input type="text" name="startDate" value="" />
         <br />
         <br/>
-        Job Title: <input type="text" name="job" value="" />
+        Job Title: <input type="text" name="jobTitle" value="" />
         <br />
         <br/>
         Salary: <input type="text" name="salary" value="" />
@@ -80,11 +80,11 @@
                 var verb = verbfield.options[verbfield.selectedIndex].value;
                 var resource = document.querySelector('input[name="resource"]').value;
                 var data = {
-                    'fName' : document.querySelector('input[name="fName"]').value,
-                    'lName' : document.querySelector('input[name="lName"]').value,
+                    'firstName' : document.querySelector('input[name="firstName"]').value,
+                    'lastName' : document.querySelector('input[name="lastName"]').value,
                     'department' : document.querySelector('input[name="department"]').value,
-                    'date' : document.querySelector('input[name="date"]').value,
-                    'job' : document.querySelector('input[name="job"]').value,
+                    'startDate' : document.querySelector('input[name="startDate"]').value,
+                    'jobTitle' : document.querySelector('input[name="jobTitle"]').value,
                     'salary' : document.querySelector('input[name="salary"]').value
                 };            
                 var results = document.querySelector('textarea[name="results"]');
@@ -142,7 +142,6 @@
                 // Return the promise
                 return promise;
             }
-             
         </script>
     </body>
 </html>

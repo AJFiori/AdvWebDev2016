@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
 var employeeSchema = new mongoose.Schema({
-    fName: String,
-    lName: String,
+    firstName: String,
+    lastName: String,
     department: String,
-    date: Date,
-    job: String,
+    startDate: Date,
+    jobTitle: String,
     salary: Number,
     createdOn: {
         type: Date,

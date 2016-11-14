@@ -6,7 +6,7 @@ function sendJSONresponse(res, status, content) {
     res.json(content);
 };
 
-
+/*Gets all the employee records*/
 module.exports.employeesReadAll = function(req, res) {
         
     console.log('Getting all employees');
@@ -22,7 +22,7 @@ module.exports.employeesReadAll = function(req, res) {
 };
 
 
-
+/*Reads one employee when searched for employeeID*/
 module.exports.employeesReadOne = function(req, res) {
     
     if (req.params && req.params.employeeid) {
@@ -59,11 +59,11 @@ module.exports.employeeCreate = function(req, res) {
     console.log('Creating a employee with data ', req.body);
     
     Employee.create({
-          fName: req.body.fName,
-          lName: req.body.lName,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
           department: req.body.department,
-          date: req.body.date,
-          job: req.body.job,
+          startDate: req.body.startDate,
+          jobTitle: req.body.jobTitle,
           salary: req.body.salary
   
     }, function(err, dataSaved) {
@@ -81,7 +81,7 @@ module.exports.employeeCreate = function(req, res) {
 
 
 
-module.exports.employeesUpdateOne = function(req, res) {
+module.exports.employeesUpstartDateOne = function(req, res) {
     
   if ( !req.params.employeeid ) {
     sendJSONresponse(res, 404, {
@@ -101,11 +101,11 @@ module.exports.employeesUpdateOne = function(req, res) {
             sendJSONresponse(res, 400, err);
             return;
         }
-        employeeData.fName = req.body.fName;
-        employeeData.lName = req.body.lName;
+        employeeData.firstName = req.body.firstName;
+        employeeData.lastName = req.body.lastName;
         employeeData.department = req.body.department,
-        employeeData.date = req.body.date,
-        employeeData.job = req.body.job,
+        employeeData.startDate = req.body.startDate,
+        employeeData.jobTitle = req.body.jobTitle,
         employeeData.salary = req.body.salary;
         
 
