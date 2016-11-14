@@ -56,7 +56,7 @@ module.exports.formPagePost = function(req, res){
     );
 };
 
-module.exports.getFormPage = function(req, res){
+module.exports.formPageGet = function(req, res){
     res.render('form', {
         title: 'Add New Employee'
     });
