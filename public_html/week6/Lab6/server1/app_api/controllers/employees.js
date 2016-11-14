@@ -81,7 +81,7 @@ module.exports.employeeCreate = function(req, res) {
 
 
 
-module.exports.employeesUpstartDateOne = function(req, res) {
+module.exports.employeesUpDateOne = function(req, res) {
     
   if ( !req.params.employeeid ) {
     sendJSONresponse(res, 404, {
