@@ -4,7 +4,7 @@ var ctrlLocations = require('../controllers/home');
 
 /* Locations pages */
 router.get('/', ctrlLocations.homePage);
-router.get('/form', ctrlLocations.forPageGet);
+router.get('/form', ctrlLocations.formPageGet);
 router.post('/form', ctrlLocations.formPagePost);
 
 

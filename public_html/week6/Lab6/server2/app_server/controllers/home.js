@@ -21,10 +21,7 @@ module.exports.homePage = function(req, res) {
             title: 'Home Page',
             results: results
         });
-    }
-            
-  );  
-  
+    });        
 };
 
 //Post new employee information
