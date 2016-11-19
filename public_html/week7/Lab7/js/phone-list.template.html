@@ -1,0 +1,9 @@
+<h1>Phones</h1>
+
+<ul class="phone">
+    <!-- loops to display all phones -->
+    <li ng-repeat="phone in vm.phones">
+        <!-- displays the image based on the name of the url -->
+        <a href="#/phones/{{phone.id}}">{{phone.name | uppercase}}</br><img ng-src="{{phone.imageUrl}}"></a>
+    </li>
+</ul>
