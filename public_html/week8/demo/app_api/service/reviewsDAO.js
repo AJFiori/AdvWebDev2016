@@ -71,8 +71,6 @@ function fixData(doc) {
     
 }
 
-
-
 module.exports.reviewsReadAll = reviewsReadAll;
 module.exports.reviewsReadOne = reviewsReadOne;
 
