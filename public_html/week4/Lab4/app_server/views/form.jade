@@ -9,12 +9,18 @@ block content
  h2=message
  form.form-horizontal(action="/form", method="post", role="form")
         .form-group
-          label.control-label(for="name") Name:         
-            input#name.form-control(name="name")  
-            
-            label.control-label(for="email") Email:
-                input#email.form-control(name="email")
-
-                label.control-label(for="comment") Comments:
-                    input#comment.form-control(name="comment")
-        input(class="btn btn-primary" type="submit" value="Add my review") 
+          label.col-xs-10.col-sm-2.control-label(for="name") Name:
+          .col-xs-12.col-sm-10
+            input#name.form-control(name="name" required)
+            br
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="email") Email:
+          .col-xs-12.col-sm-10
+            input#name.form-control(name="email" required)
+            br 
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="comment") Comments:
+          .col-xs-12.col-sm-10
+            input#name.form-control(name="comment" required)
+            br 
+            input(class="btn btn-primary" type="submit" value="Add my review") 
