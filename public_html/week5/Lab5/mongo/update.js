@@ -24,6 +24,6 @@ if (req.method === 'POST') {
    var options = {};
    var callback = function(){};
    
-   Review.update(query, update, options, callback);
+   Employee.update(query, update, options, callback);
 
 }
