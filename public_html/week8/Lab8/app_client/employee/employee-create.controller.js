@@ -2,7 +2,7 @@
 
     'use strict';
     angular
-        .module('app.review')
+        .module('app.employee')
         .controller('EmployeeCreateController', EmployeeCreateController);
 
     EmployeeCreateController.$inject = ['EmployeeService'];

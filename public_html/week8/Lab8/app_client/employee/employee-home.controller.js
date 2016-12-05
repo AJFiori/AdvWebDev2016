@@ -2,7 +2,7 @@
 
     'use strict';
     angular
-        .module('app.review')
+        .module('app.employee')
         .controller('EmployeeHomeController', EmployeeHomeController);
 
     EmployeeHomeController.$inject = ['EmployeeService', '$window'];
@@ -44,5 +44,5 @@
         }
        
     }
-
+ 
 })();
