@@ -16,12 +16,10 @@ function employeesReadAll() {
                     resolve(results);
                 }
             });           
-
     });
     
     return promise;
        
-    
 }
 
 function employeesReadOne(id) {
