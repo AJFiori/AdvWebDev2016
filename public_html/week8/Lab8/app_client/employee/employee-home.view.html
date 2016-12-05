@@ -8,7 +8,7 @@
     <br />
     <br /> 
     <p ng-class="{'msg' : vm.message.length}">{{vm.message}}</p>
-    <p><a href="#/create/">Add New Employee</a></p>
+    <p><a class="btn btn-default btn-sm" href="#/create/">Add New Employee</a></p>
     <table class="gridtable">
         <thead>
             <tr>
@@ -28,7 +28,7 @@
             <td>{{employee.firstName}}</td>                  
             <td>{{employee.lastName}}</td>
             <td>{{employee.department}}</td>
-            <td>{{employee.startDate}}</td>
+            <td>{{employee.startDate | date}}</td>
             <td>{{employee.jobTitle}}</td>
             <td>{{employee.salary}}</td>
             <td>{{employee.createdOn}}</td>
@@ -36,5 +36,4 @@
             <td><button class="btn btn-danger" ng-click="vm.deleteEmployee(employee._id)">Delete</button></td>
         </tr>
     </table>
-        
 </div>
