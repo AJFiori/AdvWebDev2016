@@ -5,17 +5,15 @@
     <p ng-class="{'msg' : vm.message.length}">{{vm.message}}</p>
     <p><a href="#/">Home</a></p>
     
-    <br />
-    <br />
     <div class="form">
         <label>First Name:</label>            
-        <input type="text" name="firstName" value="" placeholder="" ng-model="vm.data.firstName" />
-        <br /> <br />
+        <input class="form-control" id="example-text-input" type="text" name="firstName" value="" placeholder="" ng-model="vm.data.firstName" />
+        <br /> 
         <label>Last Name:</label>            
-        <input type="text" name="lastName" value="" placeholder="" ng-model="vm.data.lastName" />
-        <br /> <br />
+        <input class="form-control" id="example-text-input" type="text" name="lastName" value="" placeholder="" ng-model="vm.data.lastName" />
+        <br /> 
         <label>Department:</label>
-        <select name="department" ng-model="vm.data.department">
+        <select class="form-control" id="exampleSelect1" name="department" ng-model="vm.data.department">
             <option value="">Please Select:</option>
             <option value="">Purchasing</option>
             <option value="">Accounting</option>
@@ -23,13 +21,15 @@
             <option value="">IT</option>
             <option value="">HR</option>
         </select>
-        <br /> <br />
+        <br /> 
          <label>Start Date:</label>            
-        <input type="text" name="startDate" value="" placeholder="" ng-model="vm.data.startDate" />
-        <br /> <br />
+        <input class="form-control" id="example-text-input" type="text" name="startDate" value="" placeholder="" ng-model="vm.data.startDate" />
+        <br /> 
         <label>Salary:</label>            
-        <input type="text" name="salary" value="" placeholder="" ng-model="vm.data.salary" />
-        <br /> <br />
+        <input class="form-control" id="example-text-input" type="text" name="salary" value="" placeholder="" ng-model="vm.data.salary" />
+        <br /> 
+        <center>
         <input class="btn btn-info" type="submit" value="Submit" ng-click="vm.submit()" />
+        </center>
     </div>
 </div>

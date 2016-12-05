@@ -32,8 +32,8 @@
             <td>{{employee.jobTitle}}</td>
             <td>{{employee.salary}}</td>
             <td>{{employee.createdOn}}</td>
-            <td><a ng-href="#/update/{{employee._id}}">Update</a></td>
-            <td><button ng-click="vm.deleteEmployee(employee._id)">Delete</button></td>
+            <td><a class="btn btn-primary" ng-href="#/update/{{employee._id}}">Update</a></td>
+            <td><button class="btn btn-danger" ng-click="vm.deleteEmployee(employee._id)">Delete</button></td>
         </tr>
     </table>
         

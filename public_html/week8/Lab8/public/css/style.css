@@ -1,7 +1,10 @@
 /* app css stylesheet */
-
+body{
+    background-color: #929699;
+}
 
 h1 {
+    
     background-color: #EEE;
     border: 1px solid black;
     padding: 0.1em;
