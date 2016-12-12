@@ -1,0 +1,34 @@
+extends layout
+
+block content
+    h1=title
+    p
+    p=removed
+    table(class="table table-hover")
+        thead   
+            tr
+                th Product
+                th Description
+                th Price
+                th Created On
+        tbody
+        - each stuff in results
+            tr
+                td 
+                    = stuff.product
+                td 
+                    = stuff.description
+                td 
+                    = stuff.price
+                td 
+                    +formatDate(stuff.createdOn) 
+                td
+
+mixin formatDate(dateString)
+  -var date = new Date(dateString);
+  -var d = date.getDate();
+  -var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+  -var m = monthNames[date.getMonth()];
+  -var y = date.getFullYear();
+  -var output = m + ' ' + d + ' ' + y;
+  =output
